@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--**************************************-->
+<!--   File    : BSLedPCB.fsproj          -->
+<!--   Format  : TopoR Project file       -->
+<!--   Version : 2                        -->
+<!--   Program : TopoR Lite 7.0.18578     -->
+<!--   Date    : Friday, October 04, 2019 -->
+<!--   Time    : 01:18                    -->
+<!--**************************************-->
+
+<Project>
+   <Version current="2"/>
+   <GUID>{0180B1AF-2508-4EC4-B57F-F764968CE928}</GUID>
+   <Documents>
+      <Section name="PCB" isExpanded="true">
+         <File path=".\BSLedPCB.fsx" isopened="1" dateChange="2019-10-04 01:11:18"/>
+      </Section>
+      <Section name="AutoRouting" isExpanded="false"/>
+   </Documents>
+</Project>

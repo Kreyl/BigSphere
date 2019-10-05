@@ -1,0 +1,135 @@
+EESchema Schematic File Version 5
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+Comment5 ""
+Comment6 ""
+Comment7 ""
+Comment8 ""
+Comment9 ""
+$EndDescr
+$Comp
+L Tittar_kl:LEDwPAD D1
+U 1 1 5D915826
+P 2150 2050
+F 0 "D1" V 2059 2162 50  0000 L CNN
+F 1 "LED" V 2150 2162 50  0000 L CNN
+F 2 "LEDs:LED_XPE" H 2150 2090 60  0001 C CNN
+F 3 "" H 2250 2190 60  0001 C CNN
+F 4 "4" H 2350 2290 60  0001 C CNN "Price"
+F 5 "2" H 2450 2390 60  0001 C CNN "SolderPoints"
+F 6 "Green" V 2241 2162 50  0000 L CIN "Color"
+	1    2150 2050
+	0    -1   1    0   
+$EndComp
+$Comp
+L Connectors_kl:CONN_1 XL1
+U 1 1 5D91721A
+P 1500 1800
+F 0 "XL1" H 1417 2015 40  0000 C CNN
+F 1 "CONN_1" H 1417 2015 40  0001 C CNN
+F 2 "PCB:Oval3x1.5" H 1500 1800 60  0001 C CNN
+F 3 "" H 1500 1800 60  0000 C CNN
+	1    1500 1800
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connectors_kl:CONN_1 XL2
+U 1 1 5D918C39
+P 1500 2300
+F 0 "XL2" H 1417 2515 40  0000 C CNN
+F 1 "CONN_1" H 1417 2515 40  0001 C CNN
+F 2 "PCB:Oval3x1.5" H 1500 2300 60  0001 C CNN
+F 3 "" H 1500 2300 60  0000 C CNN
+	1    1500 2300
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 2300 2150 2250
+Wire Wire Line
+	1700 2300 2150 2300
+Wire Wire Line
+	2150 1800 2150 1850
+Wire Wire Line
+	1700 1800 2150 1800
+Wire Wire Line
+	1700 2950 2150 2950
+Wire Wire Line
+	2150 2950 2150 3000
+Wire Wire Line
+	2150 3450 2150 3400
+Wire Wire Line
+	1700 3450 2150 3450
+$Comp
+L Connectors_kl:CONN_1 XL3
+U 1 1 5D969566
+P 1500 2950
+F 0 "XL3" H 1417 3165 40  0000 C CNN
+F 1 "CONN_1" H 1417 3165 40  0001 C CNN
+F 2 "PCB:Oval3x1.5" H 1500 2950 60  0001 C CNN
+F 3 "" H 1500 2950 60  0000 C CNN
+	1    1500 2950
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connectors_kl:CONN_1 XL4
+U 1 1 5D969567
+P 1500 3450
+F 0 "XL4" H 1417 3665 40  0000 C CNN
+F 1 "CONN_1" H 1417 3665 40  0001 C CNN
+F 2 "PCB:Oval3x1.5" H 1500 3450 60  0001 C CNN
+F 3 "" H 1500 3450 60  0000 C CNN
+	1    1500 3450
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Tittar_kl:LEDwPAD D2
+U 1 1 5D969568
+P 2150 3200
+F 0 "D2" V 2059 3312 50  0000 L CNN
+F 1 "LED" V 2150 3312 50  0000 L CNN
+F 2 "LEDs:Cree_XML" H 2150 3240 60  0001 C CNN
+F 3 "" H 2250 3340 60  0001 C CNN
+F 4 "4" H 2350 3440 60  0001 C CNN "Price"
+F 5 "2" H 2450 3540 60  0001 C CNN "SolderPoints"
+F 6 "White" V 2241 3312 50  0000 L CIN "Color"
+	1    2150 3200
+	0    -1   1    0   
+$EndComp
+$Comp
+L power:GNDPWR #PWR?
+U 1 1 5D9692E1
+P 2450 3300
+F 0 "#PWR?" H 2450 3350 40  0001 C CNN
+F 1 "GNDPWR" H 2450 3220 40  0001 C CNN
+F 2 "" H 2450 3300 60  0000 C CNN
+F 3 "" H 2450 3300 60  0000 C CNN
+	1    2450 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2450 3300 2450 3200
+Wire Wire Line
+	2450 2150 2450 2050
+$Comp
+L power:GNDPWR #PWR?
+U 1 1 5D969CBA
+P 2450 2150
+F 0 "#PWR?" H 2450 2200 40  0001 C CNN
+F 1 "GNDPWR" H 2450 2070 40  0001 C CNN
+F 2 "" H 2450 2150 60  0000 C CNN
+F 3 "" H 2450 2150 60  0000 C CNN
+	1    2450 2150
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

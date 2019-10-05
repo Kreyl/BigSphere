@@ -1,0 +1,60 @@
+(session D:\Nute\Calmari\BigSphere\BSLedPCB\BSLedPCB.ses
+(base_design "D:\Nute\Calmari\BigSphere\BSLedPCB\BSLedPCB.dsn")
+      (placement 
+         (resolution mm 100000)
+         (component "LEDs:LED_XPE"
+            (place "D1" 12520000 -10300000 front 180.00)
+         )
+         (component "PCB:Oval3x1.5"
+            (place "XL4" 12090000 -11030000 front 45.00)
+            (place "XL3" 12960000 -11030000 front 315.00)
+            (place "XL2" 11920000 -9820000 front 45.00)
+            (place "XL1" 13120000 -9830000 front 315.00)
+         )
+         (component "LEDs:Cree_XML"
+            (place "D2" 12520000 -10840000 front 180.00)
+         )
+      )
+      (routes
+         (resolution mm 100000)
+         (library_out
+            (padstack "Via[0-1]_800:400_um"
+               (shape (circ "F.Cu" 80000 0 0))
+               (shape (circ "B.Cu" 80000 0 0))
+            )
+         )
+         (network_out
+            (net "Net-(D1-PadC)"
+            (wire (path "F.Cu" 50000 12380000 -10300000 12379940 -10215180)            )
+            (wire (path "F.Cu" 50000 12380000 -10300000 12305760 -10258980)            ))
+            (net "Net-(D1-PadA)"
+            (wire (path "F.Cu" 50000 12660000 -10300000 12734310 -10258310)            )
+            (wire (path "F.Cu" 50000 12660000 -10300000 12659850 -10214790)            ))
+            (net "Net-(D2-PadA)"
+            (wire (path "F.Cu" 50000 12960000 -11030000 12956890 -10974190)            )
+            (wire (path "F.Cu" 50000 12960000 -11030000 12904190 -11026890)            ))
+            (net "Net-(D2-PadA)"
+            (wire (path "F.Cu" 50000 12734000 -10976970 12760460 -11002790)            )
+            (wire (path "F.Cu" 50000 12734000 -10976970 12760340 -10951030)            ))
+            (net "Net-(D1-PadC)"
+            (wire (path "F.Cu" 150000 11920000 -9820000 12329940 -10215220) (type fix))
+            (wire (path "F.Cu" 50000 12329940 -10215220 12380000 -10300000) (type fix))
+            )
+            (net "Net-(D1-PadA)"
+            (wire (path "F.Cu" 50000 12660000 -10300000 12709850 -10214700) (type fix))
+            (wire (path "F.Cu" 150000 12709850 -10214700 13120000 -9830000) (type fix))
+            )
+            (net "Net-(D2-PadC)"
+            (wire (path "F.Cu" 150000 12143030 -10976970 12255890 -10976650) (type fix))
+            (wire (path "F.Cu" 50000 12255890 -10976650 12281000 -10976650 12306000 -10976650 12306000 -10840000) (type fix))
+            )
+            (net "Net-(D2-PadA)"
+            (wire (path "F.Cu" 50000 12960000 -11030000 12906970 -10976970) (type fix))
+            (wire (path "F.Cu" 50000 12785780 -10976850 12734000 -10976970 12734000 -10840000) (type fix))
+            (wire (path "F.Cu" 150000 12906970 -10976970 12785780 -10976850) (type fix))
+            )
+            (net "GNDPWR"
+            )
+         )
+      )
+   )
