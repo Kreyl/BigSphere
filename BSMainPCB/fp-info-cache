@@ -1,4 +1,4 @@
-727866080077565
+711263453170911
 Antennas
 ANT_868_10d4x36
 PCB{space}75.7x37.5,{space}AntPcb{space}14.8mm
@@ -36,6 +36,13 @@ PCB{space}24.384x61.722,{space}AntPcb{space}15mm
 1
 Antennas
 ANT_868_IFA_SIMPLEJOY
+
+
+0
+16
+2
+Antennas
+ANT_868_IFA_SIMPLEJOY_MIRR
 
 
 0
@@ -188,13 +195,6 @@ MagicStick
 0
 1
 1
-BGA
-BGA-294_21x14_12.0x7.5mm
-
-
-0
-167
-167
 BtnsSwitches
 BTN_4PIN_12mm
 
@@ -1392,13 +1392,6 @@ SOD923
 0
 2
 2
-Display
-Round2_2
-
-
-0
-30
-30
 Inductors
 13x13
 
@@ -1987,20 +1980,6 @@ TQFP-32_7x7_Pitch0.8mm
 0
 32
 32
-Microphones
-CMM4030
-
-
-0
-9
-5
-Microphones
-SPH0644
-
-
-0
-5
-5
 Modules
 BT_HC0x
 
@@ -2216,7 +2195,7 @@ Oval3x1.5wHole0d9_x2
 
 
 0
-2
+4
 2
 PCB
 Oval3x1.5wHole0d9mm
