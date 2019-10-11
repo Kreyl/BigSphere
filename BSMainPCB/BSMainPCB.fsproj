@@ -1,18 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Project xsi:noNamespaceSchemaLocation="Project.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<Version current="1"/>
-	<Format>Project</Format>
-	<Header>
-		<Program name="TopoR" version="6.1"/>
-		<GUID>{7651695A-0FC1-40B3-A422-E942E41EF37A}</GUID>
-		<Annotation>Project file</Annotation>
-	</Header>
-	<Document>
-		<LocalLibrary />
-		<Pcb>
-			<File path=".\BSMainPCB.fsx" Folder="-1" isopened="1"/>
-		</Pcb>
-		<ARouteSessions>
-		</ARouteSessions>
-	</Document>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--**************************************-->
+<!--   File    : BSMainPCB.fsproj         -->
+<!--   Format  : TopoR Project file       -->
+<!--   Version : 1                        -->
+<!--   Program : TopoR 8 Layer 7.0.18661  -->
+<!--   Date    : Friday, October 11, 2019 -->
+<!--   Time    : 19:24                    -->
+<!--**************************************-->
+
+<Project>
+   <Version current="1"/>
+   <Header>
+      <GUID>{7651695A-0FC1-40B3-A422-E942E41EF37A}</GUID>
+   </Header>
+   <Document>
+      <Pcb>
+         <File path=".\BSMainPCB.fsx" isopened="1" dateChange="2019-10-11 14:55:00"/>
+      </Pcb>
+      <ARouteSessions/>
+   </Document>
 </Project>
