@@ -8,8 +8,8 @@
 #pragma once
 
 // ==== General ====
-#define BOARD_NAME          "StAdapterTest"
-#define APP_NAME            "StAdapterTest"
+#define BOARD_NAME          "BigSphere01"
+#define APP_NAME            "BigSphere"
 
 // MCU type as defined in the ST header.
 #define STM32F205xx
@@ -29,55 +29,76 @@
 #define SIMPLESENSORS_ENABLED   TRUE
 #define BUTTONS_ENABLED         TRUE
 
-#define ADC_REQUIRED            TRUE
+#define ADC_REQUIRED            FALSE
 
 #if 1 // ========================== GPIO =======================================
 // EXTI
 #define INDIVIDUAL_EXTI_IRQ_REQUIRED    FALSE
 
+#define THE_CNT         9
+
 // UART
-#define UART_GPIO       GPIOA
-#define UART_TX_PIN     9
-#define UART_RX_PIN     10
+#define UART_GPIO       GPIOB
+#define UART_TX_PIN     6
+#define UART_RX_PIN     7
 
-// LEDs
-#define LED_CNT         8
-#define LED1_PIN        GPIOC, 4
-#define LED2_PIN        GPIOC, 5
-#define LED3_PIN        GPIOC, 6
-#define LED4_PIN        GPIOC, 7
-#define LED5_PIN        GPIOC, 8
-#define LED6_PIN        GPIOC, 9
-#define LED7_PIN        GPIOC, 10
-#define LED8_PIN        GPIOC, 11
+// Indication
+#define BLINK_LED       GPIOB, 8, omPushPull
+#define LED_PWR1        GPIOA, 8, omPushPull
+#define LED_PWR2        GPIOA, 10, omPushPull
+#define LED_PWR3        GPIOA, 15, omPushPull
+#define LED_PWR4        GPIOB, 9, omPushPull
+#define LED_PWR5        GPIOB, 10, omPushPull
+#define LED_PWR6        GPIOB, 11, omPushPull
+#define LED_PWR7        GPIOD, 2, omPushPull
+#define LED_PWR8        GPIOC, 14, omPushPull
+#define LED_PWR9        GPIOC, 15, omPushPull
 
-// Buttons
-#define BTN1_PIN        GPIOC, 0, pudPullUp
-#define BTN2_PIN        GPIOC, 1, pudPullUp
-#define BTN3_PIN        GPIOC, 2, pudPullUp
-#define BTN4_PIN        GPIOC, 3, pudPullUp
-
-// 7 segment
+// LED registers
 #define LED_MOSI        GPIOB, 15, omPushPull, pudNone, AF5
 #define LED_CLK         GPIOB, 13, omPushPull, pudNone, AF5
 #define LED_DRV_LE      GPIOB, 12
 #define LED_DRV_OE      GPIOB, 14
 
-// Load
-#define LOAD_SRCLK      GPIOA, 5
-#define LOAD_SER        GPIOA, 7
-#define LOAD_SRCLR      GPIOA, 8
-#define LOAD_RCLK       GPIOB, 10
-#define LOAD_AF         AF5
+// Power control
+#define PWR_CTRL1       GPIOC, 4, omPushPull
+#define PWR_CTRL2       GPIOC, 5, omPushPull
+#define PWR_CTRL3       GPIOC, 6, omPushPull
+#define PWR_CTRL4       GPIOC, 7, omPushPull
+#define PWR_CTRL5       GPIOC, 9, omPushPull
+#define PWR_CTRL6       GPIOC, 10, omPushPull
+#define PWR_CTRL7       GPIOC, 11, omPushPull
+#define PWR_CTRL8       GPIOC, 12, omPushPull
+#define PWR_CTRL9       GPIOC, 13, omPushPull
+
+#define VENT_CTRL       GPIOC, 8
+
+// Buttons
+#define BTN_PIN         GPIOB, 2, pudPullUp
+
+// USB
+#define USB_DETECT_PIN  GPIOA, 9
+#define USB_DM          GPIOA, 11
+#define USB_DP          GPIOA, 12
+#define USB_AF          AF10
 
 // Measurement
-#define VBUS_VOLTAGE    GPIOA, 4
-#define VBUS_CURRENT    GPIOA, 6
+#define VOLT1           GPIOA, 1
+#define VOLT2           GPIOA, 2
+#define VOLT3           GPIOA, 3
+#define VOLT4           GPIOC, 0
+#define VOLT5           GPIOC, 1
+#define VOLT6           GPIOC, 2
+#define VOLT7           GPIOC, 3
+#define VOLT8           GPIOB, 0
+#define VOLT9           GPIOB, 1
+
+// Radio: SPI, Sck,Miso,Mosi, Cs, GDO0
+#define CC_Setup        SPI1, GPIOA, 5,6,7, GPIOA,4, GPIOA,0
 
 #endif // GPIO
 
 #if 1 // =========================== SPI =======================================
-#define LOAD_SPI        SPI1
 #define LEDS_SPI        SPI2
 #endif
 
@@ -119,17 +140,6 @@
 #define LEDS_DMA_TX_CHNL   0
 #define LEDS_DMA_TX_MODE  \
         (STM32_DMA_CR_CHSEL(LEDS_DMA_TX_CHNL) | \
-        DMA_PRIORITY_LOW |     \
-        STM32_DMA_CR_MSIZE_BYTE | \
-        STM32_DMA_CR_PSIZE_BYTE | \
-        STM32_DMA_CR_TCIE | \
-        STM32_DMA_CR_MINC |    /* Mem pointer increase */  \
-        STM32_DMA_CR_DIR_M2P   /* Mem to peripheral */ )
-
-#define LOAD_SPI_DMA_TX STM32_DMA_STREAM_ID(2, 3)
-#define LOAD_DMA_TX_CHNL   3
-#define LOAD_DMA_TX_MODE  \
-        (STM32_DMA_CR_CHSEL(LOAD_DMA_TX_MODE) | \
         DMA_PRIORITY_LOW |     \
         STM32_DMA_CR_MSIZE_BYTE | \
         STM32_DMA_CR_PSIZE_BYTE | \

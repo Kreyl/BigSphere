@@ -18,6 +18,22 @@ static void OnCmd(Shell_t *PShell);
 
 static TmrKL_t TmrOneSecond {TIME_MS2I(999), evtIdEverySecond, tktPeriodic};
 
+LedBlinker_t LedBlink{BLINK_LED};
+#endif
+
+#if 1 // ============= Power ============
+const PinOutput_t Pwr[THE_CNT] = {
+        {PWR_CTRL1},
+        {PWR_CTRL2},
+        {PWR_CTRL3},
+        {PWR_CTRL4},
+        {PWR_CTRL5},
+        {PWR_CTRL6},
+        {PWR_CTRL7},
+        {PWR_CTRL8},
+        {PWR_CTRL9},
+};
+
 #endif
 
 int main() {
@@ -35,7 +51,17 @@ int main() {
     Printf("\r%S %S\r\n", APP_NAME, XSTRINGIFY(BUILD_TIME));
     Clk.PrintFreqs();
 
+    LedBlink.Init();
+    LedBlink.On();
+
 //    SimpleSensors::Init(); // Buttons
+
+    // Power
+    for(const PinOutput_t &Pin : Pwr) {
+        Pin.Init();
+//        Pin.SetHi();
+//        chThdSleepMilliseconds(126);
+    }
 
     TmrOneSecond.StartOrRestart();
 
@@ -54,6 +80,7 @@ void ITask() {
                 break;
 
             case evtIdShellCmd:
+                LedBlink.StartOrContinue(lsqCmd);
                 OnCmd((Shell_t*)Msg.Ptr);
                 ((Shell_t*)Msg.Ptr)->SignalCmdProcessed();
                 break;
