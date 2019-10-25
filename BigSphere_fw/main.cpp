@@ -7,6 +7,8 @@
 #include "led.h"
 #include "buttons.h"
 #include "PinSnsSettings.h"
+#include "LEDs.h"
+#include "TestPic.h"
 
 #if 1 // =============== Defines ================
 // Forever
@@ -22,7 +24,7 @@ LedBlinker_t LedBlink{BLINK_LED};
 #endif
 
 #if 1 // ============= Power ============
-const PinOutput_t Pwr[THE_CNT] = {
+const PinOutput_t Pwr[PWR_CNT] = {
         {PWR_CTRL1},
         {PWR_CTRL2},
         {PWR_CTRL3},
@@ -38,7 +40,7 @@ const PinOutput_t Pwr[THE_CNT] = {
 
 int main() {
     // ==== Setup clock ====
-//    Clk.SetCoreClk(cclk48MHz);
+    Clk.SetCoreClk(cclk48MHz);
     Clk.UpdateFreqValues();
 
     // ==== Init OS ====
@@ -51,6 +53,9 @@ int main() {
     Printf("\r%S %S\r\n", APP_NAME, XSTRINGIFY(BUILD_TIME));
     Clk.PrintFreqs();
 
+    // Debug pin
+    PinSetupOut(DBG_PIN, omPushPull);
+
     LedBlink.Init();
     LedBlink.On();
 
@@ -62,6 +67,9 @@ int main() {
 //        Pin.SetHi();
 //        chThdSleepMilliseconds(126);
     }
+
+    LedsInit();
+    LedsShowPic((uint8_t*)TestPic, sizeof(TestPic));
 
     TmrOneSecond.StartOrRestart();
 

@@ -35,7 +35,11 @@
 // EXTI
 #define INDIVIDUAL_EXTI_IRQ_REQUIRED    FALSE
 
-#define THE_CNT         9
+// Debug pin
+#define DBG_PIN         GPIOB, 5
+#define DBG_HI()        PinSetHi(DBG_PIN)
+#define DBG_LO()        PinSetLo(DBG_PIN)
+#define DBG_TOGGLE()    PinToggle(DBG_PIN)
 
 // UART
 #define UART_GPIO       GPIOB
@@ -57,10 +61,15 @@
 // LED registers
 #define LED_MOSI        GPIOB, 15, omPushPull, pudNone, AF5
 #define LED_CLK         GPIOB, 13, omPushPull, pudNone, AF5
-#define LED_DRV_LE      GPIOB, 12
-#define LED_DRV_OE      GPIOB, 14
+#define LED_LATCH       GPIOB, 12
+#define LED_OE          GPIOB, 14
+
+// LEDs
+#define LEDS_CNT        63
+#define LEDS_BYTE_CNT   8 // 63 bits => 8 bytes
 
 // Power control
+#define PWR_CNT         9
 #define PWR_CTRL1       GPIOC, 4, omPushPull
 #define PWR_CTRL2       GPIOC, 5, omPushPull
 #define PWR_CTRL3       GPIOC, 6, omPushPull
@@ -100,6 +109,12 @@
 
 #if 1 // =========================== SPI =======================================
 #define LEDS_SPI        SPI2
+#endif
+
+#if 1 // =========================== Timers ====================================
+#define LEDS_TIM        TIM3
+#define LEDS_TIM_IRQ_VECTOR VectorB4
+
 #endif
 
 #if I2C2_ENABLED // ====================== I2C ================================
@@ -143,7 +158,7 @@
         DMA_PRIORITY_LOW |     \
         STM32_DMA_CR_MSIZE_BYTE | \
         STM32_DMA_CR_PSIZE_BYTE | \
-        STM32_DMA_CR_TCIE | \
+        /*STM32_DMA_CR_TCIE |*/ \
         STM32_DMA_CR_MINC |    /* Mem pointer increase */  \
         STM32_DMA_CR_DIR_M2P   /* Mem to peripheral */ )
 
