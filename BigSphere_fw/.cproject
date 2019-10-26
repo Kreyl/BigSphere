@@ -34,6 +34,7 @@
 									<listOptionValue builtIn="false" value="../os/"/>
 									<listOptionValue builtIn="false" value="../os/stm32f205"/>
 									<listOptionValue builtIn="false" value="../kl_lib"/>
+									<listOptionValue builtIn="false" value="../Radio"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.interwork.25867304" name="Mix ARM/Thumb" superClass="com.atollic.truestudio.common_options.target.interwork" useByScannerDiscovery="false"/>
 								<inputType id="com.atollic.truestudio.as.input.841624894" name="Input" superClass="com.atollic.truestudio.as.input"/>
@@ -47,6 +48,7 @@
 									<listOptionValue builtIn="false" value="../os/"/>
 									<listOptionValue builtIn="false" value="../os/stm32f205"/>
 									<listOptionValue builtIn="false" value="../kl_lib"/>
+									<listOptionValue builtIn="false" value="../Radio"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.endianess.1346195482" name="Endianess" superClass="com.atollic.truestudio.common_options.target.endianess" useByScannerDiscovery="false"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.1558612205" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" useByScannerDiscovery="false" value="STM32F205RC" valueType="enumerated"/>
@@ -77,6 +79,7 @@
 									<listOptionValue builtIn="false" value="../os/"/>
 									<listOptionValue builtIn="false" value="../os/stm32f205"/>
 									<listOptionValue builtIn="false" value="../kl_lib"/>
+									<listOptionValue builtIn="false" value="../Radio"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.endianess.1247528642" name="Endianess" superClass="com.atollic.truestudio.common_options.target.endianess" useByScannerDiscovery="false"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.2100789530" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" useByScannerDiscovery="false" value="STM32F205RC" valueType="enumerated"/>
@@ -163,6 +166,7 @@
 									<listOptionValue builtIn="false" value="../os/"/>
 									<listOptionValue builtIn="false" value="../os/stm32f205"/>
 									<listOptionValue builtIn="false" value="../kl_lib"/>
+									<listOptionValue builtIn="false" value="../Radio"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.interwork.344991276" name="Mix ARM/Thumb" superClass="com.atollic.truestudio.common_options.target.interwork"/>
 								<inputType id="com.atollic.truestudio.as.input.628374161" name="Input" superClass="com.atollic.truestudio.as.input"/>
@@ -176,6 +180,7 @@
 									<listOptionValue builtIn="false" value="../os/"/>
 									<listOptionValue builtIn="false" value="../os/stm32f205"/>
 									<listOptionValue builtIn="false" value="../kl_lib"/>
+									<listOptionValue builtIn="false" value="../Radio"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.endianess.1464589673" name="Endianess" superClass="com.atollic.truestudio.common_options.target.endianess" useByScannerDiscovery="false"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.582783102" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" useByScannerDiscovery="false" value="STM32F205RC" valueType="enumerated"/>
@@ -206,6 +211,7 @@
 									<listOptionValue builtIn="false" value="../os/"/>
 									<listOptionValue builtIn="false" value="../os/stm32f205"/>
 									<listOptionValue builtIn="false" value="../kl_lib"/>
+									<listOptionValue builtIn="false" value="../Radio"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.endianess.1496791392" name="Endianess" superClass="com.atollic.truestudio.common_options.target.endianess" useByScannerDiscovery="false"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.1222538739" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" useByScannerDiscovery="false" value="STM32F205RC" valueType="enumerated"/>
@@ -273,8 +279,8 @@
 	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="com.atollic.truestudio.configuration.release.1996744725;com.atollic.truestudio.configuration.release.1996744725.;com.atollic.truestudio.exe.release.toolchain.gpp.310871584;com.atollic.truestudio.gpp.input.1209415284">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.atollic.truestudio.mbs.ARMToolsPerProjectProfileCPP"/>
+		<scannerConfigBuildInfo instanceId="com.atollic.truestudio.configuration.release.1996744725;com.atollic.truestudio.configuration.release.1996744725.;com.atollic.truestudio.exe.release.toolchain.gcc.1088274675;com.atollic.truestudio.gcc.input.292593613">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.atollic.truestudio.mbs.ARMToolsPerProjectProfileC"/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="com.atollic.truestudio.exe.debug.996732467;com.atollic.truestudio.exe.debug.996732467.;com.atollic.truestudio.exe.debug.toolchain.gcc.1491972003;com.atollic.truestudio.gcc.input.1002782470">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.atollic.truestudio.mbs.ARMToolsPerProjectProfileC"/>
@@ -282,8 +288,8 @@
 		<scannerConfigBuildInfo instanceId="com.atollic.truestudio.exe.debug.996732467;com.atollic.truestudio.exe.debug.996732467.;com.atollic.truestudio.exe.debug.toolchain.gpp.922990868;com.atollic.truestudio.gpp.input.1107210581">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.atollic.truestudio.mbs.ARMToolsPerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.atollic.truestudio.configuration.release.1996744725;com.atollic.truestudio.configuration.release.1996744725.;com.atollic.truestudio.exe.release.toolchain.gcc.1088274675;com.atollic.truestudio.gcc.input.292593613">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.atollic.truestudio.mbs.ARMToolsPerProjectProfileC"/>
+		<scannerConfigBuildInfo instanceId="com.atollic.truestudio.configuration.release.1996744725;com.atollic.truestudio.configuration.release.1996744725.;com.atollic.truestudio.exe.release.toolchain.gpp.310871584;com.atollic.truestudio.gpp.input.1209415284">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.atollic.truestudio.mbs.ARMToolsPerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
 	</storageModule>
 </cproject>

@@ -42,7 +42,7 @@ void LedsInit() {
 
 #if 1 // ==== Timer ====
     ITmr.Init();
-    ITmr.SetTopValue(480); // Framerate
+    ITmr.SetTopValue(540); // Framerate
     ITmr.EnableIrqOnUpdate();
     ITmr.EnableIrq(TIM3_IRQn, IRQ_PRIO_LOW);
     ITmr.Enable();

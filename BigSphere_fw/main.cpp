@@ -9,6 +9,7 @@
 #include "PinSnsSettings.h"
 #include "LEDs.h"
 #include "TestPic.h"
+#include "radio_lvl1.h"
 
 #if 1 // =============== Defines ================
 // Forever
@@ -67,9 +68,12 @@ int main() {
 //        Pin.SetHi();
 //        chThdSleepMilliseconds(126);
     }
+    Pwr[0].SetHi();
 
-    LedsInit();
-    LedsShowPic((uint8_t*)TestPic, sizeof(TestPic));
+    Radio.Init();
+
+//    LedsInit();
+//    LedsShowPic((uint8_t*)TestPic, sizeof(TestPic));
 
     TmrOneSecond.StartOrRestart();
 
@@ -107,10 +111,18 @@ void ITask() {
 void OnCmd(Shell_t *PShell) {
     Cmd_t *PCmd = &PShell->Cmd;
 //    Printf("%S  ", PCmd->Name);
-
     // Handle command
     if(PCmd->NameIs("Ping")) PShell->Ack(retvOk);
     else if(PCmd->NameIs("Version")) PShell->Print("%S %S\r\n", APP_NAME, XSTRINGIFY(BUILD_TIME));
+
+    else if(PCmd->NameIs("Set")) {
+        uint8_t Indx = 0, Value = 0;
+        PCmd->GetNext<uint8_t>(&Indx);
+        PCmd->GetNext<uint8_t>(&Value);
+        TestPic[Indx] = Value;
+        LedsShowPic((uint8_t*)TestPic, sizeof(TestPic));
+        PShell->Ack(retvOk);
+    }
 
 
     else {
