@@ -22,6 +22,9 @@ static void ITask();
 static void OnCmd(Shell_t *PShell);
 
 LedBlinker_t LedBlink{BLINK_LED};
+
+void BtnIrqHandler();
+const PinIrq_t Button { BTN_PIN, BtnIrqHandler };
 #endif
 
 #if 1 // ============= Power ============
@@ -53,13 +56,14 @@ int main() {
     Printf("\r%S %S\r\n", APP_NAME, XSTRINGIFY(BUILD_TIME));
     Clk.PrintFreqs();
 
-    // Debug pin
-    PinSetupOut(DBG_PIN, omPushPull);
+    PinSetupOut(DBG_PIN, omPushPull); // Debug pin
+    Button.Init(ttFalling);
+    Button.EnableIrq(IRQ_PRIO_LOW);
 
     LedBlink.Init();
     LedBlink.On();
 
-//    SimpleSensors::Init(); // Buttons
+    Radio.Init();
 
     // Power
     for(const PinOutput_t &Pin : Pwr) {
@@ -69,13 +73,13 @@ int main() {
 //    Pwr[2].Init();
 //    Pwr[2].SetHi();
 
-    Radio.Init();
+    // Buttons
+
 
     LedsInit();
 //    LedsShowPic((uint8_t*)TestPic, sizeof(TestPic));
-
-    EffectInit();
-    EffectStart();
+//    EffectInit();
+//    EffectStart();
 
     // ==== Main cycle ====
     ITask();
@@ -95,6 +99,10 @@ void ITask() {
             default: break;
         } // switch
     } // while true
+}
+
+void BtnIrqHandler() {
+    PrintfI("Btn\r");
 }
 
 
