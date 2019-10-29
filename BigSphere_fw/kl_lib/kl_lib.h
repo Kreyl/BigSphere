@@ -1441,7 +1441,7 @@ namespace EE {
 enum CoreClk_t {
     cclk8MHz = 8, cclk12MHz = 12, cclk16MHz = 16,
     cclk24MHz = 24, cclk48MHz = 48, cclk64MHz = 64,
-    cclk72MHz = 72, cclk80MHz = 80
+    cclk72MHz = 72, cclk80MHz = 80, cclk120MHz = 120,
 };
 
 #if defined STM32L1XX

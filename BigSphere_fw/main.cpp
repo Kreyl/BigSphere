@@ -11,6 +11,8 @@
 #include "TestPic.h"
 #include "radio_lvl1.h"
 
+#include "effects.h"
+
 #if 1 // =============== Defines ================
 // Forever
 EvtMsgQ_t<EvtMsg_t, MAIN_EVT_Q_LEN> EvtQMain;
@@ -18,8 +20,6 @@ static const UartParams_t CmdUartParams(115200, CMD_UART_PARAMS);
 CmdUart_t Uart{&CmdUartParams};
 static void ITask();
 static void OnCmd(Shell_t *PShell);
-
-static TmrKL_t TmrOneSecond {TIME_MS2I(999), evtIdEverySecond, tktPeriodic};
 
 LedBlinker_t LedBlink{BLINK_LED};
 #endif
@@ -36,12 +36,11 @@ const PinOutput_t Pwr[PWR_CNT] = {
         {PWR_CTRL8},
         {PWR_CTRL9},
 };
-
 #endif
 
 int main() {
     // ==== Setup clock ====
-    Clk.SetCoreClk(cclk48MHz);
+    Clk.SetCoreClk(cclk120MHz);
     Clk.UpdateFreqValues();
 
     // ==== Init OS ====
@@ -65,17 +64,18 @@ int main() {
     // Power
     for(const PinOutput_t &Pin : Pwr) {
         Pin.Init();
-//        Pin.SetHi();
-//        chThdSleepMilliseconds(126);
+        Pin.SetHi();
     }
-    Pwr[0].SetHi();
+//    Pwr[2].Init();
+//    Pwr[2].SetHi();
 
     Radio.Init();
 
-//    LedsInit();
+    LedsInit();
 //    LedsShowPic((uint8_t*)TestPic, sizeof(TestPic));
 
-    TmrOneSecond.StartOrRestart();
+    EffectInit();
+    EffectStart();
 
     // ==== Main cycle ====
     ITask();
@@ -85,20 +85,11 @@ __noreturn
 void ITask() {
     while(true) {
         EvtMsg_t Msg = EvtQMain.Fetch(TIME_INFINITE);
-//        Printf("Msg.ID %u\r", Msg.ID);
         switch(Msg.ID) {
-            case evtIdButtons:
-//                Printf("Btn %u; %u\r", Msg.BtnEvtInfo.Type, Msg.BtnEvtInfo.BtnID);
-                break;
-
             case evtIdShellCmd:
                 LedBlink.StartOrContinue(lsqCmd);
                 OnCmd((Shell_t*)Msg.Ptr);
                 ((Shell_t*)Msg.Ptr)->SignalCmdProcessed();
-                break;
-
-            case evtIdEverySecond:
-//                Printf("Second\r");
                 break;
 
             default: break;

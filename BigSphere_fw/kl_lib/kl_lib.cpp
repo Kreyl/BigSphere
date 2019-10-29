@@ -2209,6 +2209,12 @@ void Clk_t::SetCoreClk(CoreClk_t CoreClk) {
             SetupBusDividers(ahbDiv1, apbDiv4, apbDiv2); // 72 MHz AHB, 18 MHz APB1, 36 MHz APB2
             SetupFlashLatency(48);
             break;
+        case cclk120MHz:
+            SetupBusDividers(ahbDiv1, apbDiv4, apbDiv2); // 120 MHz AHB, 30 MHz APB1, 60 MHz APB2
+            // 12MHz / 12 * 240 / 2 => 120MHz
+            if(SetupPllMulDiv(12, 240, pllSysDiv2, 4) != retvOk) return;
+            SetupFlashLatency(120);
+            break;
     } // switch
 
     if(CoreClk >= cclk16MHz) {
