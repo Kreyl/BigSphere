@@ -7,5 +7,7 @@
 
 #pragma once
 
+#include <inttypes.h>
+
 void EffectInit();
-void EffectStart();
+void EffectStart(uint8_t *PPic);

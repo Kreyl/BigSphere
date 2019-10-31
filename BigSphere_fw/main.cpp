@@ -12,19 +12,22 @@
 #include "radio_lvl1.h"
 
 #include "effects.h"
+#include "effect_strobo.h"
+#include "effect_pulse.h"
 
 #if 1 // =============== Defines ================
 // Forever
 EvtMsgQ_t<EvtMsg_t, MAIN_EVT_Q_LEN> EvtQMain;
 static const UartParams_t CmdUartParams(115200, CMD_UART_PARAMS);
 CmdUart_t Uart{&CmdUartParams};
-static void ITask();
-static void OnCmd(Shell_t *PShell);
+//static void ITask();
+//static void OnCmd(Shell_t *PShell);
 
 LedBlinker_t LedBlink{BLINK_LED};
 
 void BtnIrqHandler();
 const PinIrq_t Button { BTN_PIN, BtnIrqHandler };
+bool WasPressed = false;
 #endif
 
 #if 1 // ============= Power ============
@@ -63,6 +66,9 @@ int main() {
     LedBlink.Init();
     LedBlink.On();
 
+    PinSetupOut(VENT_CTRL, omPushPull);
+    PinSetHi(VENT_CTRL);
+
     Radio.Init();
 
     // Power
@@ -70,43 +76,26 @@ int main() {
         Pin.Init();
         Pin.SetHi();
     }
-//    Pwr[2].Init();
-//    Pwr[2].SetHi();
-
-    // Buttons
-
 
     LedsInit();
 //    LedsShowPic((uint8_t*)TestPic, sizeof(TestPic));
-//    EffectInit();
-//    EffectStart();
+    EffectInit();
+    EffectStart(IdlePic);
 
-    // ==== Main cycle ====
-    ITask();
-}
-
-__noreturn
-void ITask() {
-    while(true) {
-        EvtMsg_t Msg = EvtQMain.Fetch(TIME_INFINITE);
-        switch(Msg.ID) {
-            case evtIdShellCmd:
-                LedBlink.StartOrContinue(lsqCmd);
-                OnCmd((Shell_t*)Msg.Ptr);
-                ((Shell_t*)Msg.Ptr)->SignalCmdProcessed();
-                break;
-
-            default: break;
-        } // switch
-    } // while true
+    while(true);
 }
 
 void BtnIrqHandler() {
-    PrintfI("Btn\r");
+//    PrintfI("Btn\r");
+    // Do it once
+    if(!WasPressed) {
+        WasPressed = true;
+        EffectStart(StroboPic);
+    }
 }
 
 
-#if 1 // ======================= Command processing ============================
+#if 0 // ======================= Command processing ============================
 void OnCmd(Shell_t *PShell) {
     Cmd_t *PCmd = &PShell->Cmd;
 //    Printf("%S  ", PCmd->Name);
