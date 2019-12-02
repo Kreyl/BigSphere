@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--**************************************-->
-<!--   File    : BSMainPCB.fsproj         -->
-<!--   Format  : TopoR Project file       -->
-<!--   Version : 1                        -->
-<!--   Program : TopoR 8 Layer 7.0.18661  -->
-<!--   Date    : Friday, October 11, 2019 -->
-<!--   Time    : 19:24                    -->
-<!--**************************************-->
+<!--***************************************-->
+<!--   File    : BSMainPCB.fsproj          -->
+<!--   Format  : TopoR Project file        -->
+<!--   Version : 1                         -->
+<!--   Program : TopoR 8 Layer 7.0.18661   -->
+<!--   Date    : Sunday, November 10, 2019 -->
+<!--   Time    : 20:59                     -->
+<!--***************************************-->
 
 <Project>
    <Version current="1"/>
@@ -15,7 +15,7 @@
    </Header>
    <Document>
       <Pcb>
-         <File path=".\BSMainPCB.fsx" isopened="1" dateChange="2019-10-11 14:55:00"/>
+         <File path=".\BSMainPCB.fsx" isopened="1" dateChange="2019-10-11 19:19:22"/>
       </Pcb>
       <ARouteSessions/>
    </Document>
